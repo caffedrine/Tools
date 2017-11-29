@@ -5,6 +5,10 @@ or
 
 ```sudo iftop -e wlan0```
 
+or
+
+```sudo nethogs```
+
 ## Monitor disk usage
 
 ```sudo iotop -aoP```
