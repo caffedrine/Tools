@@ -18,3 +18,5 @@ and a beautiful format:
 
 ```sudo nmap -n -sP 10.0.0.1/24 | awk '/Nmap scan report/ {printf $5;printf "\t";getline;getline;printf $3; printf " "; printf $4; printf " "; printf $5; printf " "; printf $6; printf " "; print $7}'```
 
+### Get live hosts using ARP requests (Kali Linux)
+```netdiscover```
