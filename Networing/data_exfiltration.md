@@ -22,7 +22,7 @@ or even send a file:
 $ sudo hping3 192.168.179.131 -1 --file send.txt --data 100
 ```
 
-## 2. DNS protocol
+## 2. DNS queries
 
 An image worth a thousand words...
 
