@@ -28,7 +28,8 @@ An image worth a thousand words...
 
 ![DNS Data Exfiltration](docs/dns_data_exfiltration.png)
 
-#### Resources: 
+
+## Resources: 
 
   * https://www.sans.org/reading-room/whitepapers/dns/detecting-dns-tunneling-34152
   *https://community.infoblox.com/t5/Community-Blog/DNS-Data-Exfiltration-How-it-works/ba-p/3664
