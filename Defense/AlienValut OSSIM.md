@@ -13,7 +13,9 @@
 
 Download: https://www.alienvault.com/products/ossim/download
 
-It's a good practice to configure all machines inside network to send all theyr logs to this server so you can have some intelligence regarding the network!
+Stuff to be read: https://www.alienvault.com/documentation/resources/pdf/usm-appliance-user-guide.pdf
+
+To do: configure all machines inside network to send all they logs to this server so you can have some intelligence regarding the network!
 
 See *Industrial Cybersecurity* by *Pascal Ackerman*
 
