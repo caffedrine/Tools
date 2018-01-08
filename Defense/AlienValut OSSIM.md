@@ -12,3 +12,11 @@
 > OSSIM leverages the power of the AlienVault® Open Threat Exchange® (OTX™) by allowing users to both contribute and receive real-time information about malicious hosts. In addition, we provide ongoing development for OSSIM because we believe that everyone should have access to sophisticated security technologies, to improve the security of all. From the researchers who need a platform for experimentation and the unsung heroes who can't convince their companies that security is a problem, OSSIM offers you a chance to increase security visibility and control in your network.
 
 Download: https://www.alienvault.com/products/ossim/download
+
+It's a good practice to configure all machines inside network to send all theyr logs to this server so you can have some intelligence regarding the network!
+
+See *Industrial Cybersecurity* by *Pascal Ackerman*
+
+![AlienValut](https://cdn.alienvault.com/images/uploads/home/screen1.png)
+
+But, in the end, everything have it's price: https://www.rapid7.com/db/modules/exploit/linux/http/alienvault_sqli_exec
