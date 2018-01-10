@@ -13,7 +13,7 @@ FILE=$1
 
 # Enable/disable fingerprinting.
 # If you are interested for a particular service on all hosts then anable this
-FINGERPRINT_ENABLED=1;
+FINGERPRINT_ENABLED=0;
 NMAP_FINGERPRINT_SCRIPT=modbus-discover.nse
 
 # Output variables
@@ -22,6 +22,15 @@ HOST_STATE="-"
 PORT_STATE="-"
 FINGERPRINT_SHORT="-"
 FINGERPRINT_FULL="-"
+TARGET_IP_RDNS="-"
+TARGET_IP_ISP="-"
+
+# Store results in this array then print to a file
+RESULTS_ARRAY=()
+
+# Set file header
+RESULTS_ARRAY=("${RESULTS_ARRAY[@]}" "COUNTER\tTARGET\tHOST STATE\tPORT STATE\tIP_RDNS\tIP_ISP\tDEVICE\tFINGERPRINT")
+#RETULTS_ARRAY+=", , , , , , ,"
 
 ### FUNCTIONS ###
 # Function to check whether host is UP or not
@@ -75,7 +84,57 @@ function get_service_fingerprint()
 
 	return 1
 }
+
+# Get ip rDNS
+function get_rdns()
+{
+	# Use nslookup for this task
+	RESULT=$( nslookup $1 | awk '/name = / {print $4;}' )
+	
+	# Assign to global variable
+	TARGET_IP_RDNS=$RESULT
+}
+
+# Get ISP
+function get_ISP()
+{
+	# Use ipinfo.io to get isp
+	RESULT=$( curl -s https://ipinfo.io/$1/org )
+
+	# Assign result to global
+	TARGET_IP_ISP=$RESULT
+}
+
+# Save to file
+function save_csv()
+{
+	_DIR=${FILE%/*}
+	_NAME="$(cut -d'.' -f1 <<<"${FILE##*/}")_checked.csv"
+	_FULL="$DIR/$NAME"
+
+	# print results array
+	#printf '%s\n' "${RESULTS_ARRAY[@]}" >> $FULL
+
+	#for each in ${RESULTS_ARRAY[@]}; do
+	#	printf "%s\n" "$each"
+	#done
+
+	#echo -e $RESULTS_ARRAY
+
+	#DAMN! Arrrrrrrrrrays are freaky stuff on this field!
+}
 ### END FUNCTIONS ###
+
+# Append header to file
+_DIR=${FILE%/*}
+_NAME="$(cut -d'.' -f1 <<<"${FILE##*/}")_checked.csv"
+_FULL="$_DIR/$_NAME"
+
+printf '%s\n' "COUNTER,TARGET,HOST STATE,PORT STATE,IP_RDNS,IP_ISP,DEVICE,FINGERPRINT" > $_FULL
+printf '%s\n' ",,,,,,," >> $_FULL
+
+# Init counter
+COUNTER=0
 
 # Read file
 while IFS= read -r line
@@ -85,6 +144,12 @@ do
 
 	# Assign target to global variable
 	TARGET=$IP
+
+	# resolve rDNS
+	get_rdns $IP
+
+	# try to get ISP
+	get_ISP $IP
 
 	# Call function to check whether host is up or not and grab result with $?
 	is_host_up $IP
@@ -100,8 +165,12 @@ do
 		fi
 	fi
 
-	# Print results or do whatever
-	echo -e "$TARGET \t $HOST_STATE \t $PORT_STATE \t $FINGERPRINT_SHORT"
+	# Print results in short
+	#echo -e "$COUNTER \t $TARGET \t $HOST_STATE \t $PORT_STATE \t $TARGET_IP_RDNS \t $TARGET_IP_ISP \t $FINGERPRINT_SHORT"
+	
+	# Save result to array
+	RESULT_STR="$COUNTER,$TARGET,$HOST_STATE,$PORT_STATE,$TARGET_IP_RDNS,$TARGET_IP_ISP\,$FINGERPRINT_SHORT,$FINGERPRINT_FULL"
+	printf '%s\n' "$RESULT_STR" >> $_FULL
 
 	# Clean variables
 	TARGET="-"
@@ -109,5 +178,14 @@ do
 	PORT_STATE="-"
 	FINGERPRINT_SHORT="-"
 	FINGERPRINT_FULL="-"
+	TARGET_IP_RDNS="-"
+	TARGET_IP_ISP="-"
 	
+	# increment counter 
+	((COUNTER++))
+
+	break
 done < $FILE
+
+# Save results to CSV file
+# save_csv
