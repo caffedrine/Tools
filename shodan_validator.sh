@@ -13,7 +13,7 @@ FILE=$1
 
 # Enable/disable fingerprinting.
 # If you are interested for a particular service on all hosts then anable this
-FINGERPRINT_ENABLED=0;
+FINGERPRINT_ENABLED=1;
 NMAP_FINGERPRINT_SCRIPT=modbus-discover.nse
 
 # Output variables
@@ -166,10 +166,10 @@ do
 	fi
 
 	# Print results in short
-	#echo -e "$COUNTER \t $TARGET \t $HOST_STATE \t $PORT_STATE \t $TARGET_IP_RDNS \t $TARGET_IP_ISP \t $FINGERPRINT_SHORT"
+	echo -e "$COUNTER \t $TARGET \t $HOST_STATE \t $PORT_STATE \t $TARGET_IP_RDNS \t $TARGET_IP_ISP \t $FINGERPRINT_SHORT"
 	
 	# Save result to array
-	RESULT_STR="$COUNTER,$TARGET,$HOST_STATE,$PORT_STATE,$TARGET_IP_RDNS,$TARGET_IP_ISP\,$FINGERPRINT_SHORT,$FINGERPRINT_FULL"
+	RESULT_STR="\"$COUNTER\",\"$TARGET\",\"$HOST_STATE\",\"$PORT_STATE\",\"$TARGET_IP_RDNS\",\"$TARGET_IP_ISP\",\"$FINGERPRINT_SHORT\",\"$FINGERPRINT_FULL\""
 	printf '%s\n' "$RESULT_STR" >> $_FULL
 
 	# Clean variables
@@ -184,8 +184,5 @@ do
 	# increment counter 
 	((COUNTER++))
 
-	break
 done < $FILE
 
-# Save results to CSV file
-# save_csv
