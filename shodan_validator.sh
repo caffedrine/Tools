@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Usefull for number of results < 1k as it is not multithreading
 # Usage: ./shodan_validator.sh <ip_addresses_list>
 # The format of IP addresses should be IP:PORT
 
@@ -99,7 +100,7 @@ function get_rdns()
 function get_ISP()
 {
 	# Use ipinfo.io to get isp
-	RESULT=$( curl -s https://ipinfo.io/$1/org )
+	RESULT=$( curl -s https://ipinfo.io/$1/org?token=1ea4cc9d6b0493 )
 
 	# Assign result to global
 	TARGET_IP_ISP=$RESULT
