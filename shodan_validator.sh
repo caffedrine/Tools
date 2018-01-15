@@ -75,7 +75,7 @@ function get_service_fingerprint()
 	# For example, you grab all shodan IP addresses with Modbus (port 502) open. Then you can use
 	# an nmap script to fingerprint all hosts returned by shodan!
 
-	RESULT=$(nmap --script $NMAP_FINGERPRINT_SCRIPT -p $2 $1)
+	RESULT=$( (nmap --script $NMAP_FINGERPRINT_SCRIPT  -p $2 $1) & sleep 20 ; kill $! )	# 15 seconds timeout for scrpt
 
 	FINGERPRINT_SHORT=$( grep -oP "(Device identification: )(.*)" <<<"$RESULT")
 	FINGERPRINT_SHORT=${FINGERPRINT_SHORT#"Device identification: "}
