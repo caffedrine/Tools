@@ -31,6 +31,19 @@ $ sudo nmap -n -sP 10.0.0.1/24 | awk '/Nmap scan report/ {printf $5;printf "\t";
 $ sudo nmap -PR 10.0.0.1/24 -sn
 ```
 
+## Scan for open ports and service version
+
+```
+$ sudo nmap -sV 10.0.0.1 -p-
+```
+
+## Aggresive scan
+
+"enable OS detection and Version detection, Script scanning and Traceroute"
+
+```
+sudo nmap -A -T4 10.0.0.1
+```
 
 ## Get live hosts using ARP requests (Kali Linux)
 ```$ sudo netdiscover```
