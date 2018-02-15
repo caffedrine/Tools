@@ -28,6 +28,7 @@ An image worth a thousand words...
 
 ![DNS Data Exfiltration](docs/dns_data_exfiltration.png)
 
+## 3. SMTP, HTTP and so on :)
 
 ## Resources: 
 
