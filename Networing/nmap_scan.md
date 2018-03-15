@@ -37,6 +37,8 @@ $ sudo nmap -PR 10.0.0.1/24 -sn
 $ sudo nmap -sV 10.0.0.1 -p-
 
 $ nmap -A -T4 10.0.0.1 -p5900	#better
+
+$ sudo nmap -n -PN -sT -sU -p- remote_host	# all tcp and udp ports
 ```
 
 
