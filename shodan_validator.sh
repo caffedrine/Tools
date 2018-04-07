@@ -9,6 +9,32 @@
 # Basically this script check whether the ports provided by shodan are still open or not. 
 # Optionally nMap fingerprinting scripts can be used to gather data about device!
 
+# Check wether all requirements are meet or not
+NMAP_INSTALLED=$(command -v nmap)
+if [ -z "$NMAP_INSTALLED" ]; then
+	echo -e "ERROR: nMap needs to be installed!"
+	exit 1
+fi
+
+CURL_INSTALLED=$(command -v curl)
+if [ $CURL_INSTALLED == "" ]; then
+	echo -e "ERROR: cURL needs to be installed!"
+	exit 1
+fi
+
+NSLOOKUP_INSTALLED=$(command -v 'nslookup')
+if [ $NSLOOKUP_INSTALLED == "" ]; then
+	echo -e "ERROR: nslookup needs to be installed!"
+	exit 1
+fi
+
+# Check if arguments are passed or not
+if [ -z "$1" ]; then
+    echo "Usage: ./shodan_validator.sh <ip_addresses_list>"
+    echo "The format of IP addresses should be IP:PORT"
+    exit 1
+fi
+
 # Get file name
 FILE=$1
 
@@ -127,7 +153,11 @@ function save_csv()
 ### END FUNCTIONS ###
 
 # Append header to file
-_DIR=${FILE%/*}
+if [[ "${FILE:0:1}" == / || "${FILE:0:2}" == ~[/a-z] ]]; then		# is absolute path - Handle relative and absolute paths
+	_DIR=${FILE%/*}	# The given path is absolute
+else
+	_DIR=$(pwd)		# The given path is relative
+fi
 _NAME="$(cut -d'.' -f1 <<<"${FILE##*/}")_checked.csv"
 _FULL="$_DIR/$_NAME"
 
