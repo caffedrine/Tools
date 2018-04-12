@@ -155,7 +155,7 @@ function save_csv()
 ### END FUNCTIONS ###
 
 # Append header to file
-if [[ "${FILE:0:1}" == / || "${FILE:0:2}" == ~[/a-z] ]]; then		# is absolute path - Handle relative and absolute paths
+if [[ "${FILE:0:1}" == / || "${FILE:0:2}" == ~[/a-z] ]]; then	# Handle relative and absolute paths
 	_DIR=${FILE%/*}	# The given path is absolute
 else
 	_DIR=$(pwd)		# The given path is relative
