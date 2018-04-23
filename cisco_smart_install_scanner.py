@@ -43,12 +43,21 @@ def getISP(ip):
         return html
     except:
         return "ERR"
+def isHostUp(ip):
+    HOST_UP = True if os.system("ping -c 1 " + IP + ">>/dev/null") is 0 else False
+    if HOST_UP:
+        return "HOST_UP"
+    else:
+        return "HOST_DOWN"
 
 def getPortState(host, port):
-    bashCommand = "nmap -p %s %s | awk '/Host is up/ {getline;getline; printf $1; printf $2;}' >> /dev/null" % (port, host)
-    import subprocess
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    output, error = process.communicate()
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(15)
+    result = sock.connect_ex((host, int(port)))
+    if result == 0:
+        return "open"
+    else:
+        return "closed"
 
 ### END FUNCS ###
 
@@ -70,8 +79,9 @@ for target in targets:
     PORT = int(target.split(":")[1])
 
     TARGET = IP + ":" + str(PORT)
-    HOST_STATE = "Unknown"
-    PORT_STATE = "Unknown"
+    HOST_STATE = isHostUp(IP)
+
+    PORT_STATE = getPortState(IP, str(PORT))
     CISCO_SMI = "Unknown"
     VULN_STATE="Unknown"
     IP_RDNS = "Unknown"
@@ -84,18 +94,19 @@ for target in targets:
     conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     conn.settimeout(CONN_TIMEOUT)
 
+    UP = 1;
     try:
         conn.connect((IP, PORT))
     except socket.gaierror:
         VULN_STATE = "ERROR"
         CISCO_SMI = "ERROR"
-        sys.exit()
+        UP=0
     except socket.error:
-        HOST_STATE = "Down"
+        HOST_STATE = "HOST_DOWN"
         PORT_STATE = "closed"
-        sys.exit()
+        UP=0
 
-    if conn:
+    if conn and UP is 1:
         req = '0' * 7 + '1' + '0' * 7 + '1' + '0' * 7 + '4' + '0' * 7 + '8' + '0' * 7 + '1' + '0' * 8
         resp = '0' * 7 + '4' + '0' * 8 + '0' * 7 + '3' + '0' * 7 + '8' + '0' * 7 + '1' + '0' * 8
 
@@ -140,7 +151,6 @@ for target in targets:
         print OUTPUT_STR            # Also display on console for debugging purposes
         f.write(OUTPUT_STR + "\n")
     INDEX = INDEX+1
-
 
 
 
