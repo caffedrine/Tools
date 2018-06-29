@@ -41,7 +41,7 @@ FILE=$1
 # Enable/disable fingerprinting.
 # If you are interested for a particular service on all hosts then anable this
 FINGERPRINT_ENABLED=1;
-NMAP_FINGERPRINT_SCRIPT=modbus-discover.nse
+NMAP_FINGERPRINT_SCRIPT=$2
 
 # Output variables
 TARGET="-"
