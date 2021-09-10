@@ -67,6 +67,24 @@ $ sudo nmap -sZ <target>
 ```
 
 # 4. SSDP Scan
+
+Simple Service Discovery Protocol
+
 ```console
 $ sudo nmap -sL <target>
+```
+
+# 5. Service version discovery
+```console
+$ sudo nmap -sV <target>
+```
+
+Additionaly, default scripts can be enabled by providing -sC:
+```console
+$ sudo nmap -sV -sC <target>
+```
+
+Additionaly, OS detection + version detection + script scanning + traceroute could be enabled with -A:
+```console
+$ sudo nmap -A <target>
 ```

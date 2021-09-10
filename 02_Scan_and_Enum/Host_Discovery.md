@@ -10,6 +10,8 @@ $ sudo nmap -sn -PR <target>
 $ sudo nmap -sn -PU <target>		# Default port is 40125
 $ sudo nmap -sn -PU53 <target>		# Specify different port
 ```
+Host discovery info:
+https://nmap.org/book/man-host-discovery.html
 
 ### 3. ICMP Echo Scan
 ```console
