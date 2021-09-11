@@ -31,6 +31,19 @@ $ sudo nmap -D ip1,ip2,ip3,ME,ip4,ip5,etc <target>  # if ME is not provided, nma
 $ sudo nmap -S <spoofed_ip> <target>
 ```
 or
+
 ```console
 $ sudo hping3 <target> -a <spoofed_ip>
 ```
+
+## 6. Randomizing host order
+```console
+$ sudo nmap --randomize-hosts <target>
+```
+
+## 7. Sending bad checksums
+```console
+$ sudo nmap --badsum <target>
+```
+
+## 8. Proxy servers
