@@ -4,7 +4,7 @@
 
 1. Using smbclient
 ```console
-$ smbclient -L  //<target_host>
+$ smbclient -L  //10.10.10.27
 Enter WORKGROUP\kali's password: <anything>
         Sharename       Type      Comment
         ---------       ----      -------
@@ -55,4 +55,39 @@ smb: \> dir
 
                 10328063 blocks of size 4096. 8239507 blocks available
 smb: \>
+```
+
+## Download file
+```console
+$ smbclient //10.10.10.27/backups
+Enter WORKGROUP\kali's password:
+Try "help" to get a list of possible commands.
+smb: \> help
+?              allinfo        altname        archive        backup
+blocksize      cancel         case_sensitive cd             chmod
+chown          close          del            deltree        dir
+du             echo           exit           get            getfacl
+geteas         hardlink       help           history        iosize
+lcd            link           lock           lowercase      ls
+l              mask           md             mget           mkdir
+more           mput           newer          notify         open
+posix          posix_encrypt  posix_open     posix_mkdir    posix_rmdir
+posix_unlink   posix_whoami   print          prompt         put
+pwd            q              queue          quit           readlink
+rd             recurse        reget          rename         reput
+rm             rmdir          showacls       setea          setmode
+scopy          stat           symlink        tar            tarmode
+timeout        translate      unlock         volume         vuid
+wdel           logon          listconnect    showconnect    tcon
+tdis           tid            utimes         logoff         ..
+!
+smb: \> dir
+  .                                   D        0  Mon Jan 20 12:20:57 2020
+  ..                                  D        0  Mon Jan 20 12:20:57 2020
+  prod.dtsConfig                     AR      609  Mon Jan 20 12:23:02 2020
+
+                10328063 blocks of size 4096. 8246751 blocks available
+smb: \> get prod.dtsConfig
+getting file \prod.dtsConfig of size 609 as prod.dtsConfig (0.6 KiloBytes/sec) (average 0.6 KiloBytes/sec)
+smb: \> 
 ```
