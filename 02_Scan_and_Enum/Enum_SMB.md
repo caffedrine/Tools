@@ -1,8 +1,13 @@
 # SMB Enumeration
 
+
+
 ## List shares
 
 1. Using smbclient
+
+https://github.com/SecureAuthCorp/impacket
+
 ```console
 $ smbclient -L  //10.10.10.27
 Enter WORKGROUP\kali's password: <anything>
@@ -16,11 +21,16 @@ SMB1 disabled -- no workgroup available
 ```
 
 2. Using smbmap:
+
+https://github.com/ShawnDEvans/smbmap
+
 ```console
 $ smbmap -L -H 10.10.10.27
 ```
 
 3. Using crackmapexec:
+https://github.com/byt3bl33d3r/CrackMapExec
+
 ```console
 $ crackmapexec smb <target> --shares
 [*] First time use detected
