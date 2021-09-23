@@ -3,10 +3,17 @@
 ## Access powershell history
 type C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
+## Tools:
+1. BeRoot
+2. LinPostExp
+
 # DLL Hijacking
 Simply put, applications will take the closes dll found. If a dll is placed in the same directory with the application it will load it. Therefore it is sucsceptible toexecuting a malicious dll placed in the folder by an attacker.
 
 https://dmcxblue.gitbook.io/red-team-notes/privesc/dll-search-order-hijacking
+
+#### Tools:
+1. Dependency Walker
 
 ### Tools used to detect hijackable DLLs:
 1. Robber - detect which dll is not loaded by full path.4
@@ -15,6 +22,10 @@ https://dmcxblue.gitbook.io/red-team-notes/privesc/dll-search-order-hijacking
 # Exploiting vulnerabilities
 
 # Exploit Spectre and Meltdown vulnerabilities
+
+Tools to check:
+1. InSpectre
+2. Spectre & Meltdown Checker
 
 # Named Pipe Impersonation
 Named pipes are used to to provide inter-processes communications.
