@@ -1,5 +1,7 @@
 # Linux privileges escalation
 
+### Tools:
+1. LinPostExp
 
 # Abusing sudo
 

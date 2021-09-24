@@ -51,3 +51,30 @@ Tools:
 9. GrayFish
 10. ZeroAccess
 
+#### Anti rootkits
+1. GMER
+2. Stinger
+3. Malware bytes anti-rootkit
+4. Rootkit buster
+
+
+## NTFS Data Stream Manipulation
+
+```
+# Add alternate data stream
+> notepad file.txt:hidden.exe
+
+# Shortcut alternative data stream
+> mklink hidden file.txt:hidden.exe
+
+```
+
+#### NTFS Stream Detectors
+
+1. Stream Armor
+2. Stream Detector
+3. GMER 
+4. ADS Manager
+5. ADS Scanner
+6. Streams (Microsoft)
+
