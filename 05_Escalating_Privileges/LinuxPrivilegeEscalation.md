@@ -2,6 +2,8 @@
 
 ### Tools:
 1. LinPostExp
+2. linPEAS
+3. 
 
 # Abusing sudo
 
@@ -25,3 +27,7 @@ $ find / -perm -g=s -type f 2>/dev/null
 
 
 Use linprivchecker.py to detect available kernel exploits.
+
+
+# Cheatsheets
+https://gtfobins.github.io/
