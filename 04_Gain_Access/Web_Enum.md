@@ -15,6 +15,9 @@ $ gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u <target>
 $ gospider -s http://10.10.10.46
 ```
 
+Only discover directories:
+
+
 ## Generate dictionary from html pages 
 ```
 html2dic 

@@ -11,7 +11,7 @@ $ wfuzz -w fuzz_params.txt -b user=34322 -b userrole=admin "http://10.10.10.28/c
 Only show results with status 200
 
 ```
-$ wfuzz -w wordlist/general/common.txt -b user=FUZZ -b userrole=admin --filter "(c=200)" http://10.10.10.28/cdn-cgi/login/admin.php?content=uploads
+$ wfuzz -w /usr/share/wordlist/general/common.txt -b user=FUZZ -b userrole=admin --filter "(c=200)" http://10.10.10.28/cdn-cgi/login/admin.php?content=uploads
 ```
 
 
