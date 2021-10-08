@@ -116,8 +116,28 @@ If target reslves to multiple IPs, there is a load balancer in between
 	```
 
 ## 2. Analyze web applications
+#### a. Identify entry point for user inputs
+Check how inputs are handled, what heaers are required, etc.
+
+#### b. Identify server-side technologies
+USe tools such as **httprint** or **WhatWeb** to identify server technology.
+
+#### c. Identify server-side functionality
+Use tools such as wget or nmap to check website capabilities (GET, POST, DELETE) or technologies hat handle the requests.
+
+#### d. Identify files and directories
+User tools like **gobuster** or **gospider** to map website directories and files.
+Also nMap have script **http-enum** that would do the same thing.
+
+#### e. Identify web applications vulnerabilities
+Use a tool such as **vega** or **nessus** to determine whether app contain known vulnerabilities.
+
+#### f. Map the attack surface
+Map the attack surface to identify weak points that can be exploited.
 
 ## 3. Bypass Client-Sice controls
+
+
 ## 4. Attack auth mechanism
 ## 5. Attack auth schemes
 ## 6. Attack ACL
