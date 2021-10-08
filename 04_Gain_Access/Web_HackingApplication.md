@@ -135,11 +135,67 @@ Use a tool such as **vega** or **nessus** to determine whether app contain known
 #### f. Map the attack surface
 Map the attack surface to identify weak points that can be exploited.
 
-## 3. Bypass Client-Sice controls
-
+## 3. Bypass Client-Side controls
+1. Attack hidden forms
+2. Attack browser extensions - use extensions to intercept traffic
+3. Evade XSS filters
+	- Encoding characters (HTML - &#106;, HXX - &#6A;, b64 encoding, padding &#0000006A;, character codes - String.formCharCode(63))
+	- Embedding whitespace ( al ert(1337),  &#x109;)
+	- Carriage return and newlines (java\nscript)
+	- Manipulating tags - (<scr<script>ipt>, <img/src="">, <a onmousedown=alert(1)>)
 
 ## 4. Attack auth mechanism
+
+#### a. Design and implementation flaws
+1. Bad passwords
+2. Broute-force login
+3. Verbose failure messages
+4. Insecure transmission of credentials
+5. Password reset mechanism
+6. Forgotten password mechanism
+7. Rememberme functionality
+8. User impersonation
+9. Improper validation
+10. Predictable usernames and passwords
+11. Insecure distribution of credentials
+12. Fail-open login
+13. Fail in multistage login mechanism
+14. Insecure storage of creds 
+
+#### b. Username enumeration
+When entering wrong credentials, check if the message indicate which one is wrong.
+- verbose fails messages
+- predictable usernames
+
+#### c. Password attacks
+- Password changing (send a link to victim to reset passw if CSRF is not working)
+- Password recovery
+- Remember-me exploit
+- Password guessing
+- Password brute-forcing
+- Tools used: THC-Hydra
+
+#### d. Session attacks
+- Session ID predicted
+- Session ID bruteforcing
+- Session poisoning
+
+#### e. Cookie exploitation
+- Cookie poisoning
+- Cookie sniffing
+- Cookie reply
+
+#### f. Bypass authentication
+ - Bypas SML based SSO
+
 ## 5. Attack auth schemes
+#### a. Uniform resources identifier (URI)
+#### b. POST Data
+#### c. Query string and cookies
+#### d. Parameter tampering
+#### e. HTTP Headers
+#### f. Hidden tags
+
 ## 6. Attack ACL
 ## 7. Attack session management mechanism
 ## 8. Perform injection attacks
