@@ -41,16 +41,15 @@
 1. SQL Injection
 2. LDAP Injection
 3. Command injection
-
-a. Shell injection
-b. HTML Embedding
-c. File Injection
-d. Server-side JS Injection
-e. Server-side Include Injectyion
-f. Server-side Template Injection
-g. Log injection
-h. HTML Injection
-i. CRLF Injection
+	- Shell injection
+	- HTML Embedding
+	- File Injection
+	- Server-side JS Injection
+	- Server-side Include Injectyion
+	- Server-side Template Injection
+	- Log injection
+	- HTML Injection
+	- CRLF Injection
 
 # Web applications hacking methodology
 
@@ -66,21 +65,20 @@ i. CRLF Injection
 
 ### c. Server identification
 1. Banner grabbing
-a. Telnet/Netcat banner grabbing
-b. SSL banner grabbing:
-	```
-	$ openssl
-	> s_client -host google.com -port 443
-	```
+	- Telnet/Netcat banner grabbing
+	- SSL banner grabbing:
+		```
+		$ openssl
+		> s_client -host google.com -port 443
+		```
 2. Detecting WAF
-
-	a. Using Wafw00f
+	- Using Wafw00f
 	```
 	$ wafw00f google.com
 	```
-	b. WhatWaf
-	c. nMap
-	d. Sheldify WAF Detector
+	- WhatWaf
+	- nMap
+	- Sheldify WAF Detector
 
 3. Detecting proxies
 	Use trace to detect proxies. When packet is bounced back, header will contain "X-Forward-for" or other proxy-specific content.
