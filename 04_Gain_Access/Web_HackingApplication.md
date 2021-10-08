@@ -41,6 +41,7 @@
 1. SQL Injection
 2. LDAP Injection
 3. Command injection
+
 a. Shell injection
 b. HTML Embedding
 c. File Injection
@@ -72,6 +73,7 @@ b. SSL banner grabbing:
 	> s_client -host google.com -port 443
 	```
 2. Detecting WAF
+
 	a. Using Wafw00f
 	```
 	$ wafw00f google.com
