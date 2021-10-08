@@ -41,15 +41,15 @@
 1. SQL Injection
 2. LDAP Injection
 3. Command injection
-	a. Shell injection
-	b. HTML Embedding
-	c. File Injection
-	d. Server-side JS Injection
-	e. Server-side Include Injectyion
-	f. Server-side Template Injection
-	g. Log injection
-	h. HTML Injection
-	i. CRLF Injection
+a. Shell injection
+b. HTML Embedding
+c. File Injection
+d. Server-side JS Injection
+e. Server-side Include Injectyion
+f. Server-side Template Injection
+g. Log injection
+h. HTML Injection
+i. CRLF Injection
 
 # Web applications hacking methodology
 
@@ -85,49 +85,49 @@ b. SSL banner grabbing:
 
 ### d. Hidden content discovery
 1. Dir brouteforce - gobuster, owasp zend, burp suite
-```
-$ gobuster dir -w dirs.txt -u http://google.com
-```
+	```
+	$ gobuster dir -w dirs.txt -u http://google.com
+	```
 2. Website spidering
-```
-$ gospider google.com
-```
+	```
+	$ gospider google.com
+	```
 
 ### e. Load balancers detection
 If target reslves to multiple IPs, there is a load balancer in between
 1. Using host
-
-```
-$ host google.com
-```
+	```
+	$ host google.com
+	```
 
 2. Using dig
-```
-$ dig google.com
-```
+	```
+	$ dig google.com
+	```
 
 3. Using lbd
-```
-$ lbd google.com
-```
+	```
+	$ lbd google.com
+	```
 
 4. Using harlbert
-```
-$ harlberd google.com
-```
+	```
+	$ harlberd google.com
+	```
 
 ## 2. Analyze web applications
-3. Bypass Client-Sice controls
-4. Attack auth mechanism
-5. Attack auth schemes
-6. Attack ACL
-7. Attack session management mechanism
-8. Perform injection attacks
-9. Attack Application Logic flaws
-10. Attach shared environment
-11. Attack Database Connectivity
-12. Attack web app client
-13. Attack web services
+
+## 3. Bypass Client-Sice controls
+## 4. Attack auth mechanism
+## 5. Attack auth schemes
+## 6. Attack ACL
+## 7. Attack session management mechanism
+## 8. Perform injection attacks
+## 9. Attack Application Logic flaws
+## 10. Attach shared environment
+## 11. Attack Database Connectivity
+## 12. Attack web app client
+## 13. Attack web services
 
 # Web API, Webhooks, Weh Shells
 
