@@ -101,3 +101,6 @@ smb: \> get prod.dtsConfig
 getting file \prod.dtsConfig of size 609 as prod.dtsConfig (0.6 KiloBytes/sec) (average 0.6 KiloBytes/sec)
 smb: \> 
 ```
+Cheatsheet:
+- https://www.exploit-db.com/docs/48760
+- https://book.hacktricks.xyz/pentesting/pentesting-smb
