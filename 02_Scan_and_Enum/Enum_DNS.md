@@ -65,3 +65,5 @@ DNSSEC version NSEC3 not succeptible to this attack.
 2. nslookup
 3. dnsrecon
 4. dnsenum
+
+https://book.hacktricks.xyz/pentesting/pentesting-dns
