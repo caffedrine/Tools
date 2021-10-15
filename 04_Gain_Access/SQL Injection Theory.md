@@ -110,7 +110,16 @@ Password:*/=1--
 Full payloads list here: https://github.com/payloadbox/sql-injection-payload-list
 
 
-## 3. SQL Injection blackbox testing
+## 3. Perforn SQL Injection attack
+
+#### a. Perform Union SQL Injection
+a. Extract database name
+b. Extract Database tables
+c. Extract Table column Names
+d. Extract data
+
+
+#### b. 
 
 
 
