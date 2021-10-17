@@ -39,7 +39,7 @@ Util: https://github.com/ethicalhackeragnidhra/Wifi-arsenal/blob/master/README.m
 | WPA3			| AES-GCMP 256| arbitrary	| 192-bit		| ECDH and ECDSA	| BIP-GMAC-256			|
 
 
-## Wireless threats
+## WiFi threats
 
 #### Access control attacks
 
@@ -52,7 +52,7 @@ Util: https://github.com/ethicalhackeragnidhra/Wifi-arsenal/blob/master/README.m
 | Ad-Hoc Associations| Connect to unsecured Ad-Hox networks.												|
 | Promiscuous client| Place an AP with stronger signal with attractive name									|
 | Client mis-association| Client that is associating to wrong AP											|
-| Unauthorized association| 																				|
+| Unauthorized association| Host a soft AP and wait for users to connect. Once connected, attacker gain access to other hosts inside.|
 
 
 #### Integrity attacks
@@ -115,8 +115,74 @@ Util: https://github.com/ethicalhackeragnidhra/Wifi-arsenal/blob/master/README.m
 | Application Login Theft | Capture user credentials from cleartext apps protocols	| Ace Passw Sniffer, dsniff, Wi-Jacking|
 
 
+## WiFi Hacking Methodology
 
+#### 1. WiFi discovery
 
+- Tools: wash, inSSIDer Plus, NetSurveyor
+- Mobile tools: WiFi Analyzer
+- GPS Mapping tools: WiGLE, Maptitude Mapping Software
+- Databases: Wi-Fi Finder
+- WarDriving: Record logs with NEtStumbler and import them to WiGLE to show them on map.
+
+#### 2. WiFi Traffic Analysis
+
+- Wireshrk + Npcap
+- SteelCentral Packet Analyser
+- OmniPeek Network Protocol Analyzer
+- CommonView WiFi
+- Kismet
+- Spectrum analysis using **RF Explorer**
+
+#### 3. Launch WiFi Attacks
+- Aircrack-ng suite:
+| Tool name 			| Description																		|
+|-----------------------|-----------------------------------------------------------------------------------|
+| Airbase-ng			| Capture WPA/WPA2 handshakes														|
+| **Aircrack-ng**		| WEP/WPA/WPA2 Cracking Tool 														|
+| Airdecap-ng 			| Decrypt WEP/WPA/WPA2 and strip Wi-Fi headers form packets							|
+| Airdecloack-ng		| Remove WEP cloacking from a PCAP format file.										|
+| Airdrop-ng			| Used for deauthentication of users												|
+| **Aireplay-ng**		| Used for packet reply, ARP injection, fake auth, traffic generation				|
+| Airgraph-ng			| Generate grapsh from airodump files.												|
+| **Airmon-ng**			| Used to switch intefrace to monitor mode											|
+| **Airodump-ng**		| Capture RAW 802.11 packets														|
+| Airolib-ng			| ESSID and passwords manager used in WPA/WPA2 PSK Cracking 						|
+| Airserv-ng			| Allow multiple programs to use simultaneously WiFi Card 							|
+| Airtun-ng				| Virtul tunnel to monitor traffic and inject traffic into network 					|
+| Easside-ng			| Communicate via WEP-encrypted AP without knowing the key 							|
+| Packetforge-ng		| Craft encrypted packets which can be injected into network 						|
+| Tkiptun-ng            | Inject malisious packets in WPA-TKIP network to recover keys						|
+| Wesside-ng			| Various techniques to efficiently crack WEP 										|
+| WZCook				| Used to recover WEP keys from WinXP												|
+
+- Detect hidden SSIDs using **airmon-ng** an **aireplay-ng**
+- Fragmentation attack using **aireplay-ng**
+- MitM using **airmon-ng**, **airodump-ng** and **aireplay-ng**
+- ARP Poisonig using ETTERCAP.
+- Rogue AP using **MANA Toolkit**
+- Evil Twin using any hotspot app
+- aLTEr attacks
+- Wi-Jacking using **aireplay-ng**
+
+#### 4. WiFi Encryption Cracking
+- WEP cracking using Aircrack-ng
+- WPA/WPA2 hacking using Wifiphisher
+- WPS using Reaver (use wash utility to detect WPS enabled APs)
+- WPA3 Cracking using Downgrde Security Attacks or Side-channel Attacks
+- WEP crack and WPA brouteforce using **Wesside-ng**
+- WPA/WPA2 brouteforce using **Fern Wifi Cracker**
+
+## WiFi Hacking Tools
+
+- WEP/WPA/WPA2 Cracking tools: Elcomsoft Wireless Security Auditor, Portable Penetrator, WepCrackGui, Pyrit, WepAttack, coWPAtty
+- WEP/WPA/WPA2 Cracking Tools for mobile: WIBR+, WiFi WPS WPA Tester, WPS WPA Wifi Tester, iWep PRO, WiFi Hacker, WiFi Password Hacker
+- WiFi Packet Sniffers: SteelCentral Packet Analyzer, Omnipeek Network Protocol ANalyzer, CommView for WiFi, Kismet
+- WiFi Packet Analysing tools: AirMagnet WiFi analyzer PRO, SteelCentral Packet, Omnipeek Network, CommView for WiFi, Capsa Portable Network Analyzer, PRTG Network Monitor
+- WarDriving tools: airbase-ng, inSSIDer, NetSpot, WiGLE WiFi Wardriving, iStumbler
+- RF Monitoring Tools: Sentry Edge II, DTC-340 RFXpert, CPRI Advisor, SigX
+- Raw packet capturing tools: WirelesNetView, PRTG Network monitor, Tcpdump, RawCap, airodump-ng
+- Spectrun analysis tools: Channalyzer Essential, AirMagnet Spectrum XT, Cisco Spectrum Expert WiFi, USB Spectrum Analyzer, AirSleuth-PRO, GreatScott Rf analyzer
 
 
 
