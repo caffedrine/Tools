@@ -9,6 +9,7 @@
 https://github.com/SecureAuthCorp/impacket
 
 ```console
+$ smbclient -L //10.10.10.248/Users -U "Tiffany.Molina" -W "intelligence.htb"
 $ smbclient -L  //10.10.10.27
 Enter WORKGROUP\kali's password: <anything>
         Sharename       Type      Comment
@@ -18,6 +19,14 @@ Enter WORKGROUP\kali's password: <anything>
         C$              Disk      Default share
         IPC$            IPC       Remote IPC
 SMB1 disabled -- no workgroup available
+```
+Then, to list a specific share, remove "-L" from command:
+```
+$ smbclient "//10.10.10.248/Users" -U "Tiffany.Molina" -W "intelligence.htb"
+Enter INTELLIGENCE.HTB\Tiffany.Molina's password: 
+Try "help" to get a list of possible commands.
+smb: \> 
+
 ```
 
 2. Using smbmap:

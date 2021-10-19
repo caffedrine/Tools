@@ -47,7 +47,8 @@ Then it can be cracked using hashcat or JTR:
 john --format=netntlmv2 hash.txt
 
 # Crack using HashCat
-hashcat -m 5600 -a 3 hash.txt
+$ hashcat -m 5600 -a 3 hash.txt # brouteforce
+$ hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt # dictionary attack
 ```
 Source:
 - https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4
