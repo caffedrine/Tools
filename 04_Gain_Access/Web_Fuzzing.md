@@ -26,6 +26,10 @@ wfuzz -c -z range,1-10 --hc=BBB http://www.site.com/FUZZ{something not there}
 wfuzz --script=robots -z list,robots.txt http://www.webscantest.com/FUZZ
 ```
 
+## Other examples
+```
+wfuzz -w /usr/share/seclists/Fuzzing/big-list-of-naughty-strings.txt --filter="(c=200 and h > 1571 or h < 1571)" -d "uname=FUZZ&password=password" http://writer.htb/administrative
+```
 
 ## Utils links
 
