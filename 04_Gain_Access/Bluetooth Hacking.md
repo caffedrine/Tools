@@ -7,7 +7,7 @@ DoS attack to overflow bluetooth devices with random packets causing a crash.
 Send unsolicited messages over bluetooth
 
 #### 3. BlueSnarfing
-Theft of info via bluetooth
+Theft of info via bluetooth by exploiting OBEX.
 
 #### 4. BlueSniff
 Bluetooth wardriving utility

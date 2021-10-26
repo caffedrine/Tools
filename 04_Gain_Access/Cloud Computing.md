@@ -8,6 +8,7 @@
 - SECaaS (Security as a Service) - peenetration testing, authentication, intrusiuon detection, anti-malware, security incident, etc in the cloud (McAfee Managed Security)
 - CaaS (Container as a Service) - virtualization  of container enginees (Docker, AWS EC2, Kubernets)
 - FaaS (Function as a Service) - functions to run microservices
+- XaaS - Anything as a Service
 
 #### Cloud deployment models
 - Public cloud - services open for public use
@@ -94,9 +95,9 @@ OWASP Top 10 Cloud Security Risks
 	- Attach a policy to a user/group/role
 	- Create/Update an inline policy for user/group/role
 	- Add a user to a group
- 22. Escalating Privileged on google Storage Buckets using **GCPBucketBrute**
- 23. Backdooring Docker Images using **dockerscan**
- 24. AWS Hacking Tool: **AWS pwn**
+22. Escalating Privileged on google Storage Buckets using **GCPBucketBrute**
+23. Backdooring Docker Images using **dockerscan**
+24. AWS Hacking Tool: **AWS pwn**
 
 
 ## V. Kubernetes Vulnerabilities
