@@ -3,7 +3,7 @@
 ### Tools:
 1. LinPostExp
 2. linPEAS
-3. 
+3. BeRoot
 
 # Abusing sudo
 
