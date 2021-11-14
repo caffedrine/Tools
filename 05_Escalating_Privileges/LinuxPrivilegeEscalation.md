@@ -4,6 +4,7 @@
 1. LinPostExp
 2. linPEAS
 3. BeRoot
+4. pspy - unprivileged Linux process snooping
 
 # Abusing sudo
 

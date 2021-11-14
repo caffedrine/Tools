@@ -1,10 +1,8 @@
 # SMB Enumeration
 
-
-
 ## List shares
 
-1. Using smbclient
+#### 1. Using smbclient
 
 https://github.com/SecureAuthCorp/impacket
 
@@ -29,15 +27,24 @@ smb: \>
 
 ```
 
-2. Using smbmap:
+#### 2. Using smbmap:
 
 https://github.com/ShawnDEvans/smbmap
 
-```console
-$ smbmap -L -H 10.10.10.27
+Display shares recursively:
+```
+kali@kali:~/htb/writer$ smbmap -H 10.10.11.101 -R
+[+] IP: 10.10.11.101:445        Name: writer.htb
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        print$                                                  NO ACCESS       Printer Drivers
+        writer2_project                                         NO ACCESS
+        IPC$                                                    NO ACCESS       IPC Service (writer server (Samba, Ubuntu))
+kali@kali:~/htb/writer$
 ```
 
-3. Using crackmapexec:
+
+#### 3. Using crackmapexec:
 https://github.com/byt3bl33d3r/CrackMapExec
 
 ```console
@@ -56,10 +63,46 @@ SMB         <target>     445    ARCHETYPE        [*] Windows Server 2019 Standar
 SMB         <target>     445    ARCHETYPE        [-] Error enumerating shares: SMB SessionError: 0x5b
 ```
 
-3. Using metasploit
+#### 4. Using metasploit
 ```console
 msf5 auziliary(scanner/smb/smb_version)...
 ```
+
+#### 5. Using **rpcclient**
+```
+kali@kali:~/htb/writer$ rpcclient -U "" -N 10.10.11.101                   
+rpcclient $> enumdomusers                                                 
+user:[kyle] rid:[0x3e8]                                                   
+rpcclient $> queryuser kyle                                               
+        User Name   :   kyle                                              
+        Full Name   :   Kyle Travis                                       
+        Home Drive  :   \\writer\kyle                                     
+        Dir Drive   :                                                     
+        Profile Path:   \\writer\kyle\profile                             
+        Logon Script:                                                     
+        Description :                                                     
+        Workstations:                                                     
+        Comment     :                                                     
+        Remote Dial :                                                     
+        Logon Time               :      Thu, 01 Jan 1970 00:00:00 UTC     
+        Logoff Time              :      Wed, 06 Feb 2036 15:06:39 UTC     
+        Kickoff Time             :      Wed, 06 Feb 2036 15:06:39 UTC     
+        Password last set Time   :      Tue, 18 May 2021 17:03:35 UTC     
+        Password can change Time :      Tue, 18 May 2021 17:03:35 UTC     
+        Password must change Time:      Thu, 14 Sep 30828 02:48:05 UTC    
+        unknown_2[0..31]...                                               
+        user_rid :      0x3e8                                             
+        group_rid:      0x201                                             
+        acb_info :      0x00000010                                        
+        fields_present: 0x00ffffff                                        
+        logon_divs:     168                                               
+        bad_password_count:     0x00000000                                
+        logon_count:    0x00000000                                        
+        padding1[0..7]...                                                 
+        logon_hrs[0..21]...                                               
+```
+
+Refference: https://bitvijays.github.io/LFF-IPS-P3-Exploitation.html
 
 ## View share
 
