@@ -55,3 +55,6 @@ sudo nmap -A -T4 10.0.0.1
 
 ## Get live hosts using ARP requests (Kali Linux)
 ```$ sudo netdiscover```
+
+## Utils:
+https://github.com/gnebbia/nmap_tutorial/tree/master/sections
